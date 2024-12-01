@@ -74,6 +74,88 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.project-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.project-content p {
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-links .btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.project-links .btn-primary {
+    background: var(--primary-color);
+    border: none;
+}
+
+.project-links .btn-secondary {
+    background: var(--dark);
+    border: none;
+}
+
+.project-links .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-links .btn i {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-links .btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
 /* Filter Buttons */
 .filter-btn {
     border: none;
