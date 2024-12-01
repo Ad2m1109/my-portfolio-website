@@ -1,7 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
+
+# Configure Flask app
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-secret-key-for-development')
+app.config['ENV'] = os.getenv('FLASK_ENV', 'production')
+app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
 
 # Sample portfolio data - you can replace this with your own
 portfolio_data = {
@@ -40,4 +49,5 @@ def contact():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.getenv('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)

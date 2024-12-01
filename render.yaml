@@ -9,6 +9,12 @@ services:
         value: 3.11.0
       - key: PORT
         value: 8000
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
     healthCheckPath: /
     autoDeploy: true
     plan: free
