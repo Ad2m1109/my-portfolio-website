@@ -312,6 +312,66 @@ section.visible {
     font-size: 1.1rem;
 }
 
+/* Contact Icons */
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.contact-icon-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.contact-icon-link:hover {
+    color: var(--primary-color);
+    transform: translateX(10px);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background: var(--light-bg);
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-icon span {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .contact-icon {
+        padding: 1rem;
+    }
+    
+    .contact-icon i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .contact-icon span {
+        font-size: 1rem;
+    }
+}
+
 /* Footer */
 .bg-dark {
     background-color: var(--dark) !important;

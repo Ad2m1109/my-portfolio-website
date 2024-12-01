@@ -120,18 +120,26 @@
             <h2 class="text-center mb-4">Contact Me</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <form id="contact-form" method="POST" action="{{ url_for('contact') }}">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
+                    <div class="contact-icons text-center">
+                        <a href="mailto:ademyoussfi57@gmail.com" class="contact-icon-link" title="Email">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                                <span>ademyoussfi57@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/21655905236" class="contact-icon-link" title="WhatsApp" target="_blank">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+216 55 905 236</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adem-youssfi-2289672a4" class="contact-icon-link" title="LinkedIn" target="_blank">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                                <span>Adem Youssfi</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
