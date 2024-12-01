@@ -1,0 +1,156 @@
+/* Custom Color Variables */
+:root {
+    --primary-color: #2563eb;     /* Bright Blue */
+    --secondary-color: #3b82f6;   /* Light Blue */
+    --accent-color: #1e40af;      /* Dark Blue */
+    --text-color: #1f2937;        /* Dark Gray */
+    --light-bg: #f3f4f6;          /* Light Gray */
+    --white: #ffffff;
+    --dark: #111827;
+}
+
+/* General Styles */
+body {
+    padding-top: 56px;
+    color: var(--text-color);
+}
+
+/* Navbar Styling */
+.navbar-dark {
+    background-color: var(--primary-color) !important;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+    color: var(--white) !important;
+}
+
+.navbar-dark .nav-link:hover {
+    color: var(--light-bg) !important;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
+                url('https://source.unsplash.com/1600x900/?technology') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+}
+
+/* About Section */
+.skills .badge {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+.skills .badge:hover {
+    background-color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Projects Section */
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.card .btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.card .badge {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Contact Section */
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    color: var(--primary-color) !important;
+}
+
+.social-links a:hover {
+    color: var(--accent-color) !important;
+    transform: translateY(-3px);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Footer */
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
