@@ -59,22 +59,6 @@ body {
 
 /* Project Cards */
 .project-card {
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.project-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.project-card {
     background: var(--white);
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -82,15 +66,12 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
+    padding: 2rem;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-
-.project-content {
-    padding: 2rem;
 }
 
 .project-content h3 {
@@ -107,13 +88,31 @@ body {
     line-height: 1.6;
 }
 
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+    background: var(--light-bg);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
 .project-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .project-links .btn {
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     border-radius: 25px;
     font-weight: 500;
     display: flex;
@@ -138,11 +137,11 @@ body {
 }
 
 .project-links .btn i {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 768px) {
-    .project-content {
+    .project-card {
         padding: 1.5rem;
     }
 
@@ -150,9 +149,13 @@ body {
         font-size: 1.3rem;
     }
 
+    .project-links {
+        flex-direction: column;
+    }
+
     .project-links .btn {
-        padding: 0.4rem 1.2rem;
-        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
 }
 
