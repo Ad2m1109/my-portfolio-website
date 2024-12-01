@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 from dotenv import load_dotenv
 
@@ -42,6 +42,10 @@ portfolio_data = {
 @app.route('/')
 def index():
     return render_template('index.html', data=portfolio_data)
+
+@app.route('/healthz')
+def healthcheck():
+    return jsonify({"status": "healthy"}), 200
 
 @app.route('/contact', methods=['POST'])
 def contact():
