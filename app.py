@@ -12,31 +12,47 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-secret-key-for-devel
 app.config['ENV'] = os.getenv('FLASK_ENV', 'production')
 app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
 
-# Sample portfolio data - you can replace this with your own
+# Portfolio data
 portfolio_data = {
     'name': 'Adem Youssfi',
-    'title': 'Full Stack Developer',
-    'about': 'I am a passionate developer with expertise in Python, JavaScript, and web development.',
-    'skills': ['Python', 'JavaScript', 'HTML/CSS', 'Flask', 'React', 'SQL'],
+    'bio': 'Passionate Full Stack Developer | Python Enthusiast | Data Science Explorer',
     'projects': [
         {
-            'name': 'Project 1',
-            'description': 'A web application built with Flask and SQLAlchemy',
-            'technologies': ['Python', 'Flask', 'SQLAlchemy'],
-            'github': 'https://github.com/yourusername/project1'
-        },
+            'title': 'Portfolio Website',
+            'description': 'Personal portfolio website built with Flask and Bootstrap',
+            'tech_stack': ['Python', 'Flask', 'Bootstrap', 'HTML/CSS', 'JavaScript'],
+            'github_url': '#'
+        }
+    ],
+    'certifications': [
         {
-            'name': 'Project 2',
-            'description': 'Interactive dashboard using React and D3.js',
-            'technologies': ['React', 'D3.js', 'Node.js'],
-            'github': 'https://github.com/yourusername/project2'
+            'title': 'Your Certification',
+            'issuer': 'Certification Provider',
+            'date': '2023',
+            'description': 'Description of your certification'
         }
     ],
     'contact': {
-        'email': 'ademyoussfi57@gmail.com',
-        'linkedin': 'https://linkedin.com/in/yourusername',
-        'github': 'https://github.com/yourusername'
-    }
+        'email': 'your.email@example.com',
+        'location': 'Your Location'
+    },
+    'social_links': [
+        {'platform': 'github', 'url': 'https://github.com/Ad2m1109'},
+        {'platform': 'linkedin', 'url': 'https://linkedin.com/in/adem-youssfi'},
+        {'platform': 'twitter', 'url': 'https://twitter.com/yourusername'}
+    ],
+    'experience': """
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Full Stack Developer</h4>
+                <p>Freelance | 2023 - Present</p>
+                <ul>
+                    <li>Developed responsive web applications using Flask and React</li>
+                    <li>Implemented data analysis solutions using Python</li>
+                </ul>
+            </div>
+        </div>
+    """
 }
 
 @app.route('/')
@@ -53,4 +69,4 @@ def contact():
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)

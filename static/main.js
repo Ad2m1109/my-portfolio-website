@@ -22,54 +22,6 @@ const animateSkills = () => {
     });
 };
 
-// Project Filter
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filter = button.getAttribute('data-filter');
-        
-        projectCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                card.style.display = 'block';
-                setTimeout(() => card.classList.add('show'), 10);
-            } else {
-                card.classList.remove('show');
-                setTimeout(() => card.style.display = 'none', 300);
-            }
-        });
-    });
-});
-
-// Certification Filters
-const certificationCards = document.querySelectorAll('.certification-card');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filter = button.getAttribute('data-filter');
-        
-        certificationCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                card.style.display = 'flex';
-                card.style.animation = 'fadeIn 0.5s ease forwards';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
-
 // Typing Effect
 const typeWriter = (element, text, speed = 100) => {
     let i = 0;
@@ -101,64 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('animate');
             }
         });
-    }, { threshold: 0.1 });
+    }, {
+        threshold: 0.1
+    });
 
     document.querySelectorAll('.animate-on-scroll').forEach(element => {
         observer.observe(element);
     });
-
-    // Project Filtering
-    const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
-    const projectCards = document.querySelectorAll('[data-category]');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-
-            const filterValue = button.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-
-    // Show all projects initially with animation
-    projectCards.forEach((card, index) => {
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
 });
-
-// Add fade-in animation
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-document.head.appendChild(style);
