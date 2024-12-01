@@ -3,7 +3,7 @@ services:
     name: portfolio-adem
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -c gunicorn_config.py app:app
+    startCommand: gunicorn wsgi:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
@@ -19,10 +19,10 @@ services:
     buildFilter:
       paths:
         - app.py
+        - wsgi.py
         - requirements.txt
         - templates/**
         - static/**
-        - gunicorn_config.py
       ignoredPaths:
         - "**/*.pyc"
         - "__pycache__/**"
