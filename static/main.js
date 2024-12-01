@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize typing effect
     const titleElement = document.querySelector('.typing-text');
     if (titleElement) {
-        typeWriter(titleElement, "Full Stack Developer");
+        typeWriter(titleElement, "Computer Science Student & Aspiring Developer");
     }
     
     // Add scroll animations
