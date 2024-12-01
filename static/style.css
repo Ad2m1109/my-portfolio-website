@@ -273,6 +273,45 @@ section.visible {
     border-color: var(--accent-color);
 }
 
+/* Contact Information Styles */
+.contact-info {
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.contact-item {
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    background: var(--light-bg);
+    transform: translateX(5px);
+    color: var(--primary-color);
+}
+
+.contact-link i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.contact-link span {
+    font-size: 1.1rem;
+}
+
 /* Footer */
 .bg-dark {
     background-color: var(--dark) !important;
