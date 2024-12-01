@@ -317,6 +317,43 @@ section.visible {
     background-color: var(--dark) !important;
 }
 
+/* Footer Styles */
+.footer {
+    background-color: var(--dark);
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-link {
+    color: var(--white);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+    color: var(--white);
+    transform: translateY(-3px);
+    background: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .social-links {
+        margin-top: 1rem;
+    }
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
