@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ data.name }} - Portfolio</title>
+    <title>Adem Youssfi - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,7 +12,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">{{ data.name }}</a>
+            <a class="navbar-brand" href="#">Adem Youssfi</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,6 +23,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
@@ -41,15 +44,16 @@
     <!-- Hero Section -->
     <section id="home" class="py-5 animate-on-scroll">
         <div class="container text-center">
-            <h1 class="display-4 mb-3">Hi, I'm {{ data.name }}</h1>
+            <h1 class="display-4 mb-3">Hi, I'm Adem Youssfi</h1>
             <h2 class="typing-text mb-4"></h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="about-content">
-                        <p class="lead">Full Stack Developer | Python Enthusiast | Data Science Explorer</p>
+                        <p class="lead">Computer Science Student | Machine Learning Enthusiast | Web & Mobile Developer</p>
                         <p class="about-text mt-4">
-                            I'm a passionate developer with a strong foundation in both front-end and back-end development.
-                            Currently focusing on Python development and exploring data science.
+                            I'm a passionate second-year Bachelor's student in Computer Science with a strong foundation in Python, Java, SQL, 
+                            machine learning, and web/mobile development. Currently focusing on building innovative solutions and
+                            exploring new technologies.
                         </p>
                     </div>
                 </div>
@@ -64,10 +68,11 @@
             <div class="row">
                 <div class="col-md-12 mb-4">
                     <div class="about-intro text-center">
-                        <p class="lead">Full Stack Developer | Python Enthusiast | Data Science Explorer</p>
+                        <p class="lead">Computer Science Student | Machine Learning Enthusiast | Web & Mobile Developer</p>
                         <p class="about-text mt-3">
-                            I'm a passionate developer with a strong foundation in both front-end and back-end development.
-                            Currently focusing on Python development and exploring data science.
+                            I'm a highly motivated and skilled second-year Bachelor's student in Computer Science with experience
+                            in building end-to-end projects, leading teams, and solving complex problems. I'm passionate about
+                            leveraging technology to create innovative solutions that make a difference.
                         </p>
                     </div>
                 </div>
@@ -79,16 +84,20 @@
                         <h3 class="section-subtitle mb-4">Experience</h3>
                         <ul class="list-unstyled">
                             <li class="mb-4">
+                                <span class="experience-title">Machine Learning Development</span>
+                                <p>Building predictive models using scikit-learn and TensorFlow</p>
+                            </li>
+                            <li class="mb-4">
                                 <span class="experience-title">Full Stack Development</span>
-                                <p>Building responsive web applications using modern technologies</p>
+                                <p>Creating responsive web applications with Flask backend and modern frontend technologies</p>
                             </li>
                             <li class="mb-4">
-                                <span class="experience-title">Python Development</span>
-                                <p>Creating efficient and scalable solutions with Python</p>
+                                <span class="experience-title">Mobile App Development</span>
+                                <p>Developing Android and cross-platform Flutter applications</p>
                             </li>
                             <li class="mb-4">
-                                <span class="experience-title">Data Analysis</span>
-                                <p>Working with data analysis tools and SQL databases</p>
+                                <span class="experience-title">Team Leadership</span>
+                                <p>Leading project conception, coding, and delivery with effective collaboration</p>
                             </li>
                         </ul>
                     </div>
@@ -96,16 +105,76 @@
                 <!-- Skills Column -->
                 <div class="col-md-6 mb-4">
                     <div class="content-card">
-                        <h3 class="section-subtitle mb-4">Skills</h3>
+                        <h3 class="section-subtitle mb-4">Education</h3>
+                        <div class="education-item">
+                            <h4>Bachelor's Degree in Computer Science</h4>
+                            <p class="education-details">Second Year Student</p>
+                            <p>Relevant coursework: Python, Java, SQL, Machine Learning, Web Development, Mobile Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="content-card h-100">
+                        <h3 class="section-subtitle mb-4">Programming Languages</h3>
                         <div class="skills-container">
-                            <div class="skill-tag">Python</div>
-                            <div class="skill-tag">C</div>
+                            <div class="skill-tag">Python (Advanced)</div>
+                            <div class="skill-tag">Java (Advanced)</div>
+                            <div class="skill-tag">SQL (Advanced)</div>
+                            <div class="skill-tag">C (Intermediate)</div>
+                            <div class="skill-tag">JavaScript (Intermediate)</div>
+                            <div class="skill-tag">Dart (Intermediate)</div>
                             <div class="skill-tag">HTML/CSS</div>
-                            <div class="skill-tag">JavaScript</div>
-                            <div class="skill-tag">SQL & Database</div>
-                            <div class="skill-tag">Java</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="content-card h-100">
+                        <h3 class="section-subtitle mb-4">Frameworks & Tools</h3>
+                        <div class="skills-container">
+                            <div class="skill-tag">Flask</div>
+                            <div class="skill-tag">scikit-learn</div>
+                            <div class="skill-tag">TensorFlow</div>
+                            <div class="skill-tag">Flutter</div>
+                            <div class="skill-tag">Android SDK</div>
+                            <div class="skill-tag">Git/GitHub</div>
+                            <div class="skill-tag">RESTful APIs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="content-card h-100">
+                        <h3 class="section-subtitle mb-4">Databases & Other</h3>
+                        <div class="skills-container">
+                            <div class="skill-tag">MySQL</div>
+                            <div class="skill-tag">PostgreSQL</div>
+                            <div class="skill-tag">JSON</div>
+                            <div class="skill-tag">Prompt Engineering</div>
+                            <div class="skill-tag">Android Studio</div>
                             <div class="skill-tag">Adobe Photoshop</div>
-                            <div class="skill-tag">Adobe After Effects</div>
+                            <div class="skill-tag">Adobe Premiere Pro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="content-card">
+                        <h3 class="section-subtitle mb-4">Soft Skills</h3>
+                        <div class="skills-container">
+                            <div class="skill-tag">Team Leadership</div>
+                            <div class="skill-tag">Problem-solving</div>
+                            <div class="skill-tag">Communication</div>
+                            <div class="skill-tag">Project Management</div>
+                            <div class="skill-tag">Adaptability</div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +183,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light mt-5">
+    <section id="projects" class="py-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
@@ -123,16 +192,72 @@
                 </div>
             </div>
             <div class="row justify-content-center">
+                <!-- House Price Prediction Project -->
+                <div class="col-md-5 mb-4">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <h3 class="card-title">House Price Prediction</h3>
+                            <p class="card-text">A machine learning model using scikit-learn to predict house prices in California with data preprocessing, feature engineering, and model evaluation.</p>
+                            <div class="tech-stack mb-3">
+                                <span class="badge bg-primary">Python</span>
+                                <span class="badge bg-primary">scikit-learn</span>
+                                <span class="badge bg-primary">Data Analysis</span>
+                            </div>
+                            <a href="https://github.com/Ad2m1109/Machine-Lerning" class="btn btn-dark w-100" target="_blank">
+                                <i class="fab fa-github me-2"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chatbot with Gemini API Project -->
+                <div class="col-md-5 mb-4">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Chatbot with Gemini API</h3>
+                            <p class="card-text">Developed a chatbot integrated with the Gemini API, fine-tuned responses using prompt engineering and improved user interaction.</p>
+                            <div class="tech-stack mb-3">
+                                <span class="badge bg-primary">Python</span>
+                                <span class="badge bg-primary">AI</span>
+                                <span class="badge bg-primary">API Integration</span>
+                            </div>
+                            <a href="https://github.com/Ad2m1109/Food-Chatbot" class="btn btn-dark w-100" target="_blank">
+                                <i class="fab fa-github me-2"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile App Development Project -->
+                <div class="col-md-5 mb-4">
+                    <div class="card project-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Mobile App Development</h3>
+                            <p class="card-text">Created Android apps using Java and XML, and cross-platform apps with Flutter and Dart, backed by Flask and SQL databases.</p>
+                            <div class="tech-stack mb-3">
+                                <span class="badge bg-primary">Android</span>
+                                <span class="badge bg-primary">Flutter</span>
+                                <span class="badge bg-primary">Java</span>
+                                <span class="badge bg-primary">Dart</span>
+                            </div>
+                            <a href="https://github.com/Ad2m1109/Spendora" class="btn btn-dark w-100" target="_blank">
+                                <i class="fab fa-github me-2"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Portfolio Website Project -->
                 <div class="col-md-5 mb-4">
                     <div class="card project-card">
                         <div class="card-body">
                             <h3 class="card-title">Portfolio Website</h3>
-                            <p class="card-text">A modern portfolio website built with Flask and Bootstrap.</p>
+                            <p class="card-text">A modern portfolio website built with Flask and Bootstrap, featuring responsive design and interactive elements.</p>
                             <div class="tech-stack mb-3">
                                 <span class="badge bg-primary">Python</span>
                                 <span class="badge bg-primary">Flask</span>
                                 <span class="badge bg-primary">Bootstrap</span>
+                                <span class="badge bg-primary">JavaScript</span>
                             </div>
                             <a href="https://github.com/Ad2m1109/my-portfolio-website" class="btn btn-dark w-100" target="_blank">
                                 <i class="fab fa-github me-2"></i> View on GitHub
@@ -142,12 +267,12 @@
                 </div>
 
                 <!-- GitHub Profile Link -->
-                <div class="col-md-5 mb-4">
+                <div class="col-md-10 mb-4 mt-3">
                     <div class="card project-card">
                         <div class="card-body text-center">
                             <i class="fab fa-github fa-4x mb-3"></i>
                             <h3 class="card-title">More Projects</h3>
-                            <p class="card-text">Check out all my other projects on GitHub!</p>
+                            <p class="card-text">Check out all my other projects and contributions on GitHub!</p>
                             <a href="https://github.com/Ad2m1109" class="btn btn-primary w-100" target="_blank">
                                 <i class="fab fa-github me-2"></i> Visit My GitHub Profile
                             </a>
@@ -159,7 +284,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-5 animate-on-scroll">
+    <section id="certifications" class="py-5 animate-on-scroll bg-light">
         <div class="container">
             <h2 class="text-center mb-4">Certifications</h2>
             
@@ -168,14 +293,15 @@
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="python">Python</button>
                 <button class="filter-btn" data-filter="data-science">Data Science</button>
-                <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
                 <button class="filter-btn" data-filter="java">Java</button>
+                <button class="filter-btn" data-filter="git">Git</button>
+                <button class="filter-btn" data-filter="sql">SQL</button>
             </div>
 
             <div class="row">
                 <div class="col-12">
                     <div class="certifications-grid">
-                        <!-- Python Category -->
+                        <!-- Java Category -->
                         <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/e4db24cdddcc7eb5afc2351da2c3b9ff7090e1cf" 
                         class="certification-card" data-category="java" target="_blank">
                          <div class="certification-icon">
@@ -370,6 +496,39 @@
                             <span class="certification-platform">DataCamp</span>
                             <p class="certification-date">2024</p>
                         </a>
+
+                        <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/8300f3b68c8a016798677137809fb645a39517f8" 
+                           class="certification-card" data-category="python" target="_blank">
+                            <div class="certification-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="certification-badge">Python</div>
+                            <h5>Introduction to Object-Oriented Programming in Python</h5>
+                            <span class="certification-platform">DataCamp</span>
+                            <p class="certification-date">2025</p>
+                        </a>
+
+                        <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/479d2ccef620c37e67c5d8ec4eeb81e5e37d7185" 
+                           class="certification-card" data-category="git" target="_blank">
+                            <div class="certification-icon">
+                                <i class="fab fa-git"></i>
+                            </div>
+                            <div class="certification-badge">Git</div>
+                            <h5>Introduction to GitHub Concepts</h5>
+                            <span class="certification-platform">DataCamp</span>
+                            <p class="certification-date">2025</p>
+                        </a>
+
+                        <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/45ee2f0d2efead30f276346d8276a6e9ca1013b0" 
+                           class="certification-card" data-category="git" target="_blank">
+                            <div class="certification-icon">
+                                <i class="fab fa-git"></i>
+                            </div>
+                            <div class="certification-badge">Git</div>
+                            <h5>Intermediate GitHub Concepts</h5>
+                            <span class="certification-platform">DataCamp</span>
+                            <p class="certification-date">2025</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -377,7 +536,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light animate-on-scroll">
+    <section id="contact" class="py-5 animate-on-scroll">
         <div class="container">
             <h2 class="text-center mb-4">Contact Me</h2>
             <div class="row justify-content-center">
@@ -399,6 +558,12 @@
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin"></i>
                                 <span>Adem Youssfi</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Ad2m1109" class="contact-icon-link" title="GitHub" target="_blank">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                                <span>Ad2m1109</span>
                             </div>
                         </a>
                     </div>

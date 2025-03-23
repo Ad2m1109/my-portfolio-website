@@ -15,12 +15,38 @@ scrollButton.addEventListener('click', () => {
 
 // Skill Progress Animation
 const skillBars = document.querySelectorAll('.skill-progress');
+const skillsSection = document.querySelector('#skills');
+
 const animateSkills = () => {
     skillBars.forEach(skill => {
         const progress = skill.getAttribute('data-progress');
         skill.style.width = progress + '%';
     });
 };
+
+// Use IntersectionObserver to trigger skill animation
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateSkills();
+            skillsObserver.unobserve(entry.target); // Stop observing after animation
+        }
+    });
+}, {
+    threshold: 0.3 // Trigger when 30% of the section is visible
+});
+
+if (skillsSection) {
+    skillsObserver.observe(skillsSection);
+}
+
+// Ensure skills section remains visible after animation
+skillsSection.style.opacity = '1';
+skillsSection.style.transition = 'opacity 0.3s ease-in-out';
+
+// Debugging: Log skill bars and observer
+console.log('Skill Bars:', skillBars);
+console.log('Skills Section:', skillsSection);
 
 // Typing Effect
 const typeWriter = (element, text, speed = 100) => {
@@ -37,9 +63,6 @@ const typeWriter = (element, text, speed = 100) => {
 
 // Initialize animations when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Start skill bar animation
-    animateSkills();
-    
     // Initialize typing effect
     const titleElement = document.querySelector('.typing-text');
     if (titleElement) {

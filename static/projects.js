@@ -33,15 +33,19 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
+                observer.unobserve(entry.target); // Stop observing after animation
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.1 // Trigger when 10% of the element is visible
     });
 
     // Observe all project cards
     projectCards.forEach(card => {
         observer.observe(card);
     });
+
+    // Debugging: Log project cards and filter buttons
+    console.log('Filter Buttons:', filterButtons);
+    console.log('Project Cards:', projectCards);
 });
