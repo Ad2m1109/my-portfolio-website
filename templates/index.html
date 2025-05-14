@@ -310,8 +310,10 @@
                                     <i class="fab fa-python"></i>
                                 {% elif cert.category == 'git' %}
                                     <i class="fab fa-git"></i>
-                                {% elif cert.category in ['sql', 'data-science'] %}
+                                {% elif cert.category == 'sql' %}
                                     <i class="fas fa-database"></i>
+                                {% elif cert.category == 'data-science' %}
+                                    <i class="fas fa-brain"></i>
                                 {% endif %}
                             </div>
                             <div class="certification-badge">{{ cert.category|title }}</div>
