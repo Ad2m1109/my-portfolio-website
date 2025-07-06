@@ -244,7 +244,7 @@
                 </div>
                 <div class="project-grid">
                     {% for project in data.projects %}
-                    <article class="project-card{% if project.get('is_current') %} current-website{% endif %}" data-category="{{ project.category }}">
+                    <article class="project-card{% if project.get('is_current') %} current-website{% endif %}{% if loop.index is odd %} project-card-left{% else %} project-card-right{% endif %}" data-category="{{ project.category }}">
                         <div class="project-content">
                             {% if project.get('is_current') %}
                             <div class="current-badge">You're viewing this project now!</div>
@@ -272,6 +272,10 @@
                                 </span>
                                 {% endif %}
                             </div>
+                        </div>
+                        <div class="project-image">
+                            <!-- Placeholder for project image or content -->
+                            <div class="image-placeholder"></div>
                         </div>
                     </article>
                     {% endfor %}
@@ -372,7 +376,7 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container text-center">
-            <p>&copy; 2024 Adem Youssfi. All rights reserved.</p>
+            <p>© 2024 Adem Youssfi. All rights reserved.</p>
             <div class="social-links mt-3">
                 <a href="{{ data.contact.github_url }}" target="_blank" rel="noopener" aria-label="GitHub">
                     <i class="fab fa-github"></i>

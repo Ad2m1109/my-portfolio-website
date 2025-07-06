@@ -416,24 +416,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     margin-top: 3rem;
 }
 
 .project-card {
+    display: flex;
+    align-items: center;
     background: var(--white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
-    overflow: hidden;
     position: relative;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-card-left {
+    flex-direction: row;
+}
+
+.project-card-right {
+    flex-direction: row-reverse;
 }
 
 .project-card::before {
@@ -458,6 +464,31 @@ h1, h2, h3, h4, h5, h6 {
     transform: scaleX(1);
 }
 
+.project-content {
+    flex: 1;
+    padding: 1rem;
+}
+
+.project-image {
+    flex: 1;
+    padding: 1rem;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 .project-content h3 {
     font-size: 1.6rem;
     font-weight: 600;
@@ -470,7 +501,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1;
 }
 
 .tech-stack {
@@ -966,13 +996,14 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1.5rem;
     }
 
-    .project-grid {
-        grid-template-columns: 1fr;
+    .project-card {
+        flex-direction: column !important;
         gap: 1.5rem;
+        padding: 1.5rem;
     }
 
-    .project-card {
-        padding: 1.5rem;
+    .project-content, .project-image {
+        width: 100%;
     }
 
     .project-links {
@@ -982,6 +1013,10 @@ h1, h2, h3, h4, h5, h6 {
     .project-links .btn {
         width: 100%;
         min-width: auto;
+    }
+
+    .image-placeholder {
+        height: 200px;
     }
 
     .certifications-grid {
@@ -1064,5 +1099,13 @@ h1, h2, h3, h4, h5, h6 {
         break-inside: avoid;
         box-shadow: none;
         border: 1px solid #ccc;
+    }
+
+    .project-card {
+        flex-direction: column !important;
+    }
+
+    .image-placeholder {
+        display: none;
     }
 }

@@ -1,8 +1,7 @@
-// Service Worker for Portfolio PWA
+
 const CACHE_NAME = 'adem-portfolio-v1.0.0';
 const OFFLINE_URL = '/offline.html';
 
-// Files to cache for offline functionality
 const CACHE_URLS = [
     '/',
     '/static/style.css',

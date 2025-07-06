@@ -78,47 +78,51 @@ class PortfolioData:
                 with open(csv_path, mode='r', encoding='utf-8') as file:
                     return list(csv.DictReader(file))
             else:
-                # Fallback data if CSV doesn't exist
-                return [
-                    {
-                        'title': 'Python Programming',
-                        'issuer': 'Codecademy',
-                        'date': '2024',
-                        'category': 'python',
-                        'url': '#'
-                    },
-                    {
-                        'title': 'Machine Learning Basics',
-                        'issuer': 'Coursera',
-                        'date': '2024',
-                        'category': 'data-science',
-                        'url': '#'
-                    },
-                    {
-                        'title': 'Java Programming',
-                        'issuer': 'Oracle',
-                        'date': '2023',
-                        'category': 'java',
-                        'url': '#'
-                    },
-                    {
-                        'title': 'Git Version Control',
-                        'issuer': 'GitHub',
-                        'date': '2023',
-                        'category': 'git',
-                        'url': '#'
-                    },
-                    {
-                        'title': 'SQL Database Management',
-                        'issuer': 'MySQL',
-                        'date': '2023',
-                        'category': 'sql',
-                        'url': '#'
-                    }
-                ]
+                return "file not found"
         except Exception as e:
             logging.error(f"Error loading certifications: {e}")
             return []
+
+    @staticmethod
+    def load_projects():
+        try:
+            projects = []
+            csv_path = os.path.join('data', 'projects.csv')
+            if os.path.exists(csv_path):
+                with open(csv_path, mode='r', encoding='utf-8') as file:
+                    reader = csv.DictReader(file)
+                    expected_fields = ['title', 'description', 'tech_stack', 'category', 'github_url', 'demo_url', 'is_current']
+                    for row in reader:
+                        # Validate required fields
+                        if not all(field in row for field in expected_fields):
+                            logging.warning(f"Skipping invalid project row: {row}")
+                            continue
+                        # Sanitize and convert data
+                        project = {
+                            'title': row['title'] or 'Untitled Project',
+                            'description': row['description'] or 'No description provided',
+                            'tech_stack': row['tech_stack'].split(',') if row['tech_stack'] else ['Unknown'],
+                            'category': row['category'] or 'other',
+                            'github_url': row['github_url'] or '#',
+                            'demo_url': row['demo_url'] or '#',
+                            'is_current': row['is_current'].lower() == 'true'
+                        }
+                        projects.append(project)
+                    if not projects:
+                        logging.warning("No valid projects found in CSV, using fallback data")
+                        return PortfolioData._get_fallback_projects()
+                    return projects
+            else:
+                logging.warning("Projects CSV not found, using fallback data")
+                return PortfolioData._get_fallback_projects()
+        except Exception as e:
+            logging.error(f"Error loading projects: {e}")
+            return PortfolioData._get_fallback_projects()
+    
+    @staticmethod
+    def _get_fallback_projects():
+        """Fallback project data"""
+        return "file not found"
     
     @classmethod
     def get_portfolio_data(cls):
@@ -156,49 +160,7 @@ class PortfolioData:
                 'databases': ['MySQL', 'PostgreSQL', 'JSON', 'Prompt Engineering', 'Android Studio', 'Adobe Photoshop', 'Adobe Premiere Pro'],
                 'soft_skills': ['Team Leadership', 'Problem-solving', 'Communication', 'Project Management', 'Adaptability']
             },
-            'projects': [
-                {
-                    'title': 'Harmonia - Alzheimer\'s Support App',
-                    'description': 'A privacy-first Flutter app designed to help Alzheimer\'s patients maintain independence with smart reminders, family profiles, and emergency features.',
-                    'tech_stack': ['Flutter', 'Dart', 'Mobile'],
-                    'category': 'mobile',
-                    'github_url': 'https://github.com/Ad2m1109/Harmonia',
-                    'demo_url': 'https://websites-hub.onrender.com/Harmonia'
-                },
-                {
-                    'title': 'YouTube MP3/MP4 Converter',
-                    'description': 'Convert YouTube videos to MP3 and MP4 formats easily with a user-friendly web interface.',
-                    'tech_stack': ['Web', 'Audio/Video', 'Converter'],
-                    'category': 'web',
-                    'github_url': 'https://github.com/Ad2m1109/YouTube-MP3-MP4-Converter',
-                    'demo_url': 'https://websites-hub.onrender.com/MP3-MP4-Converter'
-                },
-                {
-                    'title': 'California Housing Price Predictor',
-                    'description': 'Predict housing prices using machine learning algorithms and data analysis.',
-                    'tech_stack': ['Python', 'scikit-learn', 'Machine Learning'],
-                    'category': 'machine-learning',
-                    'github_url': 'https://github.com/Ad2m1109/Machine-Lerning',
-                    'demo_url': 'https://websites-hub.onrender.com/California-Housing-Price'
-                },
-                {
-                    'title': 'Food Chatbot with Gemini API',
-                    'description': 'Developed a food-focused chatbot integrated with the Gemini API, fine-tuned responses using prompt engineering and improved user interaction.',
-                    'tech_stack': ['Python', 'AI', 'API Integration'],
-                    'category': 'ai',
-                    'github_url': 'https://github.com/Ad2m1109/Food-Chatbot',
-                    'demo_url': 'https://ad2m1109.github.io/Food-Chatbot/'
-                },
-                {
-                    'title': 'Portfolio Website',
-                    'description': 'This very website! A modern portfolio built with Flask and Bootstrap, featuring responsive design, interactive elements, and project filtering functionality.',
-                    'tech_stack': ['Python', 'Flask', 'Bootstrap', 'JavaScript', 'HTML5/CSS3'],
-                    'category': 'web',
-                    'github_url': 'https://github.com/Ad2m1109/my-portfolio-website',
-                    'demo_url': '#',
-                    'is_current': True
-                }
-            ],
+            'projects': cls.load_projects(),
             'certifications': cls.load_certifications(),
             'contact': {
                 'email': 'ademyoussfi57@gmail.com',
