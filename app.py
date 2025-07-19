@@ -15,14 +15,20 @@ def create_app():
     
     # Security Configuration
     app.config.update(
-        SECRET_KEY=os.getenv('SECRET_KEY', 'dev-key-change-in-production'),
-        WTF_CSRF_ENABLED=True,
-        SESSION_COOKIE_SECURE=True if os.getenv('ENV') == 'production' else False,
-        SESSION_COOKIE_HTTPONLY=True,
-        PERMANENT_SESSION_LIFETIME=timedelta(hours=1),
-        CACHE_TYPE='simple',
-        CACHE_DEFAULT_TIMEOUT=300
-    )
+    SECRET_KEY=os.getenv('SECRET_KEY', 'dev-key-change-in-production'),
+    WTF_CSRF_ENABLED=True,
+    SESSION_COOKIE_SECURE=True if os.getenv('ENV') == 'production' else False,
+    SESSION_COOKIE_HTTPONLY=True,
+    PERMANENT_SESSION_LIFETIME=timedelta(hours=1),
+    CACHE_TYPE='simple',
+    CACHE_DEFAULT_TIMEOUT=300,
+    MAIL_SERVER=os.environ.get('MAIL_SERVER') or 'smtp.gmail.com',
+    MAIL_PORT=int(os.environ.get('MAIL_PORT') or 587),
+    MAIL_USE_TLS=os.environ.get('MAIL_USE_TLS', 'true').lower() in ['true', 'on', '1'],
+    MAIL_USERNAME=os.environ.get('MAIL_USERNAME'),
+    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD'),
+    MAIL_DEFAULT_SENDER=os.environ.get('MAIL_DEFAULT_SENDER')
+)
     
     # Extensions
     Compress(app)  # Enable gzip compression
@@ -70,60 +76,52 @@ def security_headers(response):
 # Data Management Class
 class PortfolioData:
     @staticmethod
-    def load_certifications():
-        try:
-            certifications = []
-            csv_path = os.path.join('data', 'certifications.csv')
-            if os.path.exists(csv_path):
-                with open(csv_path, mode='r', encoding='utf-8') as file:
-                    return list(csv.DictReader(file))
-            else:
-                return "file not found"
-        except Exception as e:
-            logging.error(f"Error loading certifications: {e}")
+    def _load_from_csv(file_path, expected_fields):
+        if not os.path.exists(file_path):
+            logging.warning(f"{file_path} not found. Returning empty list.")
             return []
+        
+        data = []
+        try:
+            with open(file_path, mode='r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    if not all(field in row for field in expected_fields):
+                        logging.warning(f"Skipping invalid row in {file_path}: {row}")
+                        continue
+                    data.append(row)
+        except Exception as e:
+            logging.error(f"Error reading {file_path}: {e}")
+            return []
+        return data
+
+    @staticmethod
+    def load_certifications():
+        csv_path = os.path.join('data', 'certifications.csv')
+        expected_fields = ['title', 'issuer', 'date', 'category', 'url']
+        return PortfolioData._load_from_csv(csv_path, expected_fields)
 
     @staticmethod
     def load_projects():
-        try:
-            projects = []
-            csv_path = os.path.join('data', 'projects.csv')
-            if os.path.exists(csv_path):
-                with open(csv_path, mode='r', encoding='utf-8') as file:
-                    reader = csv.DictReader(file)
-                    expected_fields = ['title', 'description', 'tech_stack', 'category', 'github_url', 'demo_url', 'is_current']
-                    for row in reader:
-                        # Validate required fields
-                        if not all(field in row for field in expected_fields):
-                            logging.warning(f"Skipping invalid project row: {row}")
-                            continue
-                        # Sanitize and convert data
-                        project = {
-                            'title': row['title'] or 'Untitled Project',
-                            'description': row['description'] or 'No description provided',
-                            'tech_stack': row['tech_stack'].split(',') if row['tech_stack'] else ['Unknown'],
-                            'category': row['category'] or 'other',
-                            'github_url': row['github_url'] or '#',
-                            'demo_url': row['demo_url'] or '#',
-                            'is_current': row['is_current'].lower() == 'true'
-                        }
-                        projects.append(project)
-                    if not projects:
-                        logging.warning("No valid projects found in CSV, using fallback data")
-                        return PortfolioData._get_fallback_projects()
-                    return projects
-            else:
-                logging.warning("Projects CSV not found, using fallback data")
-                return PortfolioData._get_fallback_projects()
-        except Exception as e:
-            logging.error(f"Error loading projects: {e}")
-            return PortfolioData._get_fallback_projects()
-    
-    @staticmethod
-    def _get_fallback_projects():
-        """Fallback project data"""
-        return "file not found"
-    
+        csv_path = os.path.join('data', 'projects.csv')
+        expected_fields = ['title', 'description', 'tech_stack', 'category', 'github_url', 'demo_url', 'is_current', 'image_url']
+        projects_data = PortfolioData._load_from_csv(csv_path, expected_fields)
+        
+        projects = []
+        for row in projects_data:
+            project = {
+                'title': row['title'] or 'Untitled Project',
+                'description': row['description'] or 'No description provided',
+                'tech_stack': row['tech_stack'].split(',') if row['tech_stack'] else ['Unknown'],
+                'category': row['category'] or 'other',
+                'github_url': row['github_url'] or '#',
+                'demo_url': row['demo_url'] or '#',
+                'is_current': row['is_current'].lower() == 'true',
+                'image_url': row['image_url'] or '/static/images/projects/default.png'
+            }
+            projects.append(project)
+        return projects
+
     @classmethod
     def get_portfolio_data(cls):
         return {
@@ -155,8 +153,8 @@ class PortfolioData:
                 'courses': 'Relevant coursework: Python, Java, SQL, Machine Learning, Web Development, Mobile Development'
             },
             'skills': {
-                'programming': ['Python', 'Java', 'SQL', 'C', 'JavaScript', 'Dart', 'HTML/CSS'],
-                'frameworks': ['Flask', 'scikit-learn', 'TensorFlow', 'Flutter', 'Android SDK', 'Git/GitHub', 'RESTful APIs'],
+                'programming': ['Python', 'Java', 'SQL', 'C', 'JavaScript', 'Dart', 'HTML/CSS', 'PHP'],
+                'frameworks': ['Flask', 'scikit-learn', 'TensorFlow', 'Flutter', 'Android SDK', 'Git/GitHub', 'RESTful APIs', 'Laravel'],
                 'databases': ['MySQL', 'PostgreSQL', 'JSON', 'Prompt Engineering', 'Android Studio', 'Adobe Photoshop', 'Adobe Premiere Pro'],
                 'soft_skills': ['Team Leadership', 'Problem-solving', 'Communication', 'Project Management', 'Adaptability']
             },
@@ -253,15 +251,7 @@ def not_found(error):
 def server_error(error):
     return render_template('errors/500.html'), 500
 
-@app.route('/blog')
-def blog():
-    articles = [
-        {'title': 'Building an Alzheimer\'s Support App with Flutter', 
-         'url': '#', 'date': '2024-01-15'},
-        {'title': 'Machine Learning for Housing Price Prediction',
-         'url': '#', 'date': '2023-11-20'}
-    ]
-    return render_template('blog.html', articles=articles)
+
 
 if __name__ == "__main__":
     # Set up logging

@@ -269,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     justify-content: center;
     margin: 0 auto;
@@ -312,28 +312,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-item {
-    margin-bottom: 0.75rem;
-    display: inline-block;
-    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .skill-tag {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--text-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
-    background: var(--light-bg);
-    display: inline-block;
-    transition: var(--transition);
-    border: 1px solid transparent;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    display: inline;
+    transition: color 0.3s ease;
+    border: none;
 }
 
 .skill-tag:hover {
-    background: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    background: none;
+    color: var(--primary-color);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Projects Section */
@@ -474,19 +473,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem;
 }
 
-.image-placeholder {
+.project-image-img {
     width: 100%;
     height: 300px;
-    background: var(--light-bg);
+    object-fit: cover;
     border-radius: var(--border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.project-image-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .project-content h3 {
@@ -788,6 +786,8 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
+    max-height: 800px;
+    overflow-y: auto;
 }
 
 .certification-card {
@@ -1015,7 +1015,7 @@ h1, h2, h3, h4, h5, h6 {
         min-width: auto;
     }
 
-    .image-placeholder {
+    .project-image-img {
         height: 200px;
     }
 
@@ -1105,7 +1105,7 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column !important;
     }
 
-    .image-placeholder {
-        display: none;
+    .project-image-img {
+        max-height: 200px;
     }
 }
