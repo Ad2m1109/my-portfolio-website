@@ -192,4 +192,136 @@ class TypingEffect {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => new PortfolioManager());
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    });
+
+    // Typing Animation
+    const typingText = document.querySelector('.typing-text');
+    if (typingText) {
+        const words = ["Computer Science Student", "Machine Learning Enthusiast", "Web & Mobile Developer"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        function type() {
+            if (charIndex < words[wordIndex].length) {
+                typingText.textContent += words[wordIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase() {
+            if (charIndex > 0) {
+                typingText.textContent = words[wordIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
+    }
+
+    // Scroll Animations
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+    };
+    const displayScrollElement = (element) => {
+        element.classList.add('animate');
+    };
+    const hideScrollElement = (element) => {
+        element.classList.remove('animate');
+    };
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            } else {
+                hideScrollElement(el);
+            }
+        });
+    };
+    window.addEventListener('scroll', handleScrollAnimation);
+    handleScrollAnimation();
+
+    // Project Filtering
+    const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const filter = button.dataset.filter;
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Certification Filtering
+    const certFilterButtons = document.querySelectorAll('.certification-filters .filter-btn');
+    const certCards = document.querySelectorAll('.certification-card');
+    certFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            certFilterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            const filter = button.dataset.filter;
+            certCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Loading Screen
+    const loadingScreen = document.getElementById('loading-screen');
+    window.addEventListener('load', () => {
+        loadingScreen.classList.add('fade-out');
+    });
+
+    // Project Carousel
+    const projectGrid = document.querySelector('.project-grid');
+    const scrollLeftBtn = document.querySelector('.scroll-btn.left');
+    const scrollRightBtn = document.querySelector('.scroll-btn.right');
+
+    if (projectGrid) {
+        scrollLeftBtn.addEventListener('click', () => {
+            projectGrid.scrollBy({ left: -projectGrid.offsetWidth, behavior: 'smooth' });
+        });
+
+        scrollRightBtn.addEventListener('click', () => {
+            projectGrid.scrollBy({ left: projectGrid.offsetWidth, behavior: 'smooth' });
+        });
+    }
+});
