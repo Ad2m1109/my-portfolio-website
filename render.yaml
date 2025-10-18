@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: portfolio-adem
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: False
+      - key: SECRET_KEY
+        generateValue: true
+    healthCheckPath: /healthz
+    autoDeploy: true
+    plan: free
+    buildFilter:
+      paths:
+        - app.py
+        - wsgi.py
+        - requirements.txt
+        - templates/**
+        - static/**
+      ignoredPaths:
+        - "**/*.pyc"
+        - "__pycache__/**"
+        - ".git/**"
+        - ".env"
+        - "*.log"
