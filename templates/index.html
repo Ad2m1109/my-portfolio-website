@@ -259,15 +259,11 @@
 
                 <!-- GitHub Profile Link -->
                 <div class="text-center mt-5">
-                    <div class="github-profile-card d-inline-block">
-                        <div class="github-profile-content">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                            <h3>More Projects</h3>
-                            <p>Check out all my other projects and contributions on GitHub!</p>
-                            <a href="{{ data.contact.github_url }}" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Visit Adem's GitHub profile">
-                                <i class="fab fa-github me-2"></i> Visit GitHub
-                            </a>
-                        </div>
+                    <div class="github-profile-card-image">
+                        <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub Profile" class="img-fluid github-image">
+                        <a href="{{ data.contact.github_url }}" class="btn btn-primary github-button" target="_blank" rel="noopener" aria-label="Visit Adem's GitHub profile">
+                            <i class="fab fa-github me-2"></i> Visit GitHub
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1097,6 +1097,34 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.github-image {
+    max-width: 600px;
+    border-radius: 10%;
+}
+
+.github-profile-card-image {
+    position: relative;
+    display: inline-block;
+}
+
+.github-button {
+position: absolute;
+  top: 53%;
+  left: 26.7%;
+  transform: translate(-50%, -50%);
+  width: 39%;
+  height: 21%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.github-button:hover {
+    background-color: var(--primary-color);
+    transform: translate(-50%, -50%);
+}
+
 /* Skills Pills Layout */
 .skills-pills-container {
     display: flex;
