@@ -644,6 +644,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     transition: var(--transition);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    max-height: 400px;
 }
 
 .content-card:hover {
@@ -1093,4 +1095,111 @@ h1, h2, h3, h4, h5, h6 {
     .project-image-img {
         max-height: 200px;
     }
+}
+
+/* Skills Pills Layout */
+.skills-pills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skill-category-pills {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.skill-category-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.skill-category-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-pill {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.skill-pill:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Timeline for Experience Section */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -0.75rem;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-content {
+    padding-left: 1rem;
+}
+
+/* Education Section */
+.education-item h4 {
+    color: var(--primary-color);
+}
+
+.education-details {
+    font-weight: 500;
 }

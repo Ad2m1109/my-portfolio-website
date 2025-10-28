@@ -131,28 +131,24 @@ class PortfolioData:
             'about': "A highly motivated Computer Science student specializing in Artificial Intelligence, Machine Learning, and Full-Stack Development. I've successfully delivered 25+ projects ranging from advanced computer vision systems (football analytics with YOLOv8/TensorRT) to cross-platform mobile apps (Flutter) and web applications (Flask, FastAPI). My expertise spans the entire development lifecycle - from concept to deployment - with a focus on creating innovative, user-centric solutions. I'm passionate about leveraging cutting-edge technologies to solve real-world problems and continuously expanding my skillset through hands-on projects.",
             'experience': [
                 {
-                    'title': 'AI & Computer Vision Development',
-                    'description': 'Built advanced computer vision systems using YOLOv8, TensorRT, and OpenCV for real-time object detection, tracking, and analysis in sports analytics and facial recognition applications.'
+                    'title': 'AI & Computer Vision Engineer',
+                    'description': 'Engineered and deployed advanced computer vision systems using YOLOv8, TensorRT, and OpenCV for real-time object detection and tracking in sports analytics. Developed and optimized deep learning models for facial recognition and landmark detection, achieving high accuracy and performance.'
                 },
                 {
-                    'title': 'Full-Stack Web Development',
-                    'description': 'Developed responsive web applications using Flask, FastAPI, Laravel (PHP), Bootstrap, and modern JavaScript. Created RESTful APIs, implemented secure authentication, and deployed production-ready applications.'
+                    'title': 'Full-Stack Developer',
+                    'description': 'Architected and developed scalable web applications using Flask, FastAPI, and Laravel. Designed and implemented RESTful APIs, managed databases, and deployed production-ready applications on cloud platforms. Championed responsive design and a seamless user experience.'
                 },
                 {
-                    'title': 'Mobile App Development',
-                    'description': 'Built 10+ cross-platform mobile applications using Flutter/Dart and native Android (Java), including AI-powered assistants, finance trackers, and accessibility apps with offline-first architecture.'
+                    'title': 'Mobile App Developer',
+                    'description': 'Led the development of 10+ cross-platform mobile applications using Flutter and Dart, from concept to deployment on the app stores. Integrated AI-powered features, implemented offline-first architecture, and ensured high-quality user experiences.'
                 },
                 {
-                    'title': 'Machine Learning & Data Science',
-                    'description': 'Developed predictive models using scikit-learn and TensorFlow, implemented clustering algorithms, and created interactive visualizations for data analysis and model interpretation.'
+                    'title': 'Machine Learning Practitioner',
+                    'description': 'Developed and evaluated predictive models using scikit-learn and TensorFlow for various data science projects. Implemented and visualized clustering algorithms, and performed data analysis and feature engineering to extract valuable insights.'
                 },
                 {
-                    'title': 'Desktop Application Development',
-                    'description': 'Created desktop applications using Python (Tkinter), Java (Swing), and C++ for various use cases including management systems, converters, and productivity tools.'
-                },
-                {
-                    'title': 'Team Leadership & Project Management',
-                    'description': 'Led multiple projects from conception to deployment, managing timelines, coordinating development efforts, and ensuring successful delivery of high-quality software solutions.'
+                    'title': 'Software Engineer',
+                    'description': 'Designed and built desktop applications using Python (Tkinter) and Java (Swing). Contributed to open-source projects, managed version control with Git, and collaborated with teams to deliver high-quality software solutions.'
                 }
             ],
             'education': {
@@ -161,13 +157,13 @@ class PortfolioData:
                 'courses': 'Core Coursework: Data Structures & Algorithms, Object-Oriented Programming (Java, C++), Database Management (SQL), Web Technologies (HTML, CSS, JavaScript, PHP), Machine Learning & AI, Computer Vision, Software Engineering, Mobile Development, Network Programming'
             },
             'skills': {
-                'programming': ['Python', 'Java', 'C++', 'JavaScript', 'Dart', 'SQL', 'C', 'HTML5/CSS3', 'PHP', 'Rust'],
-                'frameworks': ['Flask', 'FastAPI', 'Laravel', 'Flutter', 'Bootstrap', 'TensorFlow', 'scikit-learn', 'OpenCV', 'Android SDK', 'Swing', 'Tkinter', 'React (learning)', 'Angular'],
-                'ai_ml': ['YOLOv8', 'TensorRT', 'Computer Vision', 'Deep Learning', 'Facial Recognition', 'Object Detection & Tracking', 'Gemini API', 'Natural Language Processing', 'Prompt Engineering', 'Model Training & Optimization'],
-                'databases': ['MySQL', 'PostgreSQL', 'SQLite', 'JSON', 'CSV Data Processing'],
-                'tools': ['Git/GitHub', 'Docker (learning)', 'Android Studio', 'VS Code', 'Jupyter Notebook', 'Postman', 'RESTful APIs', 'Cargo (Rust)'],
-                'design': ['Adobe Photoshop', 'Adobe Premiere Pro', 'UI/UX Design Principles', 'Responsive Design', 'Material Design'],
-                'soft_skills': ['Team Leadership', 'Problem-solving', 'Project Management', 'Agile Development', 'Technical Documentation', 'Communication', 'Adaptability', 'Self-Learning']
+                'programming': ['Python', 'Java', 'C++', 'JavaScript', 'Dart', 'SQL', 'HTML/CSS', 'PHP', 'Rust'],
+                'frameworks': ['Flask', 'FastAPI', 'Laravel', 'Flutter', 'Bootstrap', 'TensorFlow', 'PyTorch', 'scikit-learn', 'OpenCV', 'Android SDK', 'React', 'Angular'],
+                'ai_ml': ['Computer Vision', 'Deep Learning', 'Object Detection', 'Image Segmentation', 'Natural Language Processing', 'Prompt Engineering', 'YOLOv8', 'TensorRT', 'Gemini API'],
+                'databases': ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB'],
+                'tools': ['Git', 'GitHub', 'Docker', 'Android Studio', 'VS Code', 'Jupyter Notebook', 'Postman', 'RESTful APIs', 'Cargo'],
+                'design': ['UI/UX Design', 'Responsive Design', 'Material Design', 'Adobe Photoshop', 'Adobe Premiere Pro'],
+                'soft_skills': ['Team Leadership', 'Problem Solving', 'Project Management', 'Agile Development', 'Technical Writing', 'Communication']
             },
             'projects': cls.load_projects(),
             'certifications': cls.load_certifications(),
