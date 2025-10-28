@@ -1070,6 +1070,37 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         align-items: center;
     }
+
+    .github-button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .display-4 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .content-card {
+        padding: 1rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .github-button {
+        font-size: 0.7rem;
+    }
 }
 
 /* Print Styles */
@@ -1110,9 +1141,9 @@ h1, h2, h3, h4, h5, h6 {
 .github-button {
 position: absolute;
   top: 53%;
-  left: 26.7%;
+  left: 26%;
   transform: translate(-50%, -50%);
-  width: 39%;
+  width: 38%;
   height: 21%;
   display: flex;
   align-items: center;
@@ -1123,6 +1154,18 @@ position: absolute;
 .github-button:hover {
     background-color: var(--primary-color);
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 520px) {
+    .github-button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .github-button {
+        font-size: 0.8rem;
+    }
 }
 
 /* Skills Pills Layout */
