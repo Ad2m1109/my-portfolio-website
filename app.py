@@ -31,10 +31,10 @@ def create_app():
 )
     
     # Extensions
-    Compress(app)  # Enable gzip compression
-    Cache(app)     # Enable caching
+    Compress(app)
+    Cache(app)
     
-    # Security headers (disable HTTPS forcing for development)
+    # Security headers
     Talisman(app, force_https=False, content_security_policy={
         'default-src': "'self'",
         'script-src': [
@@ -126,37 +126,48 @@ class PortfolioData:
     def get_portfolio_data(cls):
         return {
             'name': 'Adem Youssfi',
-            'title': 'Computer Science Student | Machine Learning Enthusiast | Web & Mobile Developer',
-            'bio': "I'm a passionate second-year Bachelor's student in Computer Science with a strong foundation in Python, Java, SQL, machine learning, and web/mobile development. Currently focusing on building innovative solutions and exploring new technologies.",
-            'about': "I'm a highly motivated and skilled second-year Bachelor's student in Computer Science with experience in building end-to-end projects, leading teams, and solving complex problems. I'm passionate about leveraging technology to create innovative solutions that make a difference.",
+            'title': 'Computer Science Student | AI/ML Engineer | Full-Stack Developer',
+            'bio': "I'm a passionate second-year Computer Science student with extensive hands-on experience in AI/ML, computer vision, full-stack development, and mobile apps. I've built 25+ projects across machine learning, web, mobile, and desktop platforms, demonstrating strong problem-solving skills and technical versatility.",
+            'about': "A highly motivated Computer Science student specializing in Artificial Intelligence, Machine Learning, and Full-Stack Development. I've successfully delivered 25+ projects ranging from advanced computer vision systems (football analytics with YOLOv8/TensorRT) to cross-platform mobile apps (Flutter) and web applications (Flask, FastAPI). My expertise spans the entire development lifecycle - from concept to deployment - with a focus on creating innovative, user-centric solutions. I'm passionate about leveraging cutting-edge technologies to solve real-world problems and continuously expanding my skillset through hands-on projects.",
             'experience': [
                 {
-                    'title': 'Machine Learning Development',
-                    'description': 'Building predictive models using scikit-learn and TensorFlow'
+                    'title': 'AI & Computer Vision Development',
+                    'description': 'Built advanced computer vision systems using YOLOv8, TensorRT, and OpenCV for real-time object detection, tracking, and analysis in sports analytics and facial recognition applications.'
                 },
                 {
-                    'title': 'Full Stack Development',
-                    'description': 'Creating responsive web applications with Flask backend and modern frontend technologies'
+                    'title': 'Full-Stack Web Development',
+                    'description': 'Developed responsive web applications using Flask, FastAPI, Laravel (PHP), Bootstrap, and modern JavaScript. Created RESTful APIs, implemented secure authentication, and deployed production-ready applications.'
                 },
                 {
                     'title': 'Mobile App Development',
-                    'description': 'Developing Android and cross-platform Flutter applications'
+                    'description': 'Built 10+ cross-platform mobile applications using Flutter/Dart and native Android (Java), including AI-powered assistants, finance trackers, and accessibility apps with offline-first architecture.'
                 },
                 {
-                    'title': 'Team Leadership',
-                    'description': 'Leading project conception, coding, and delivery with effective collaboration'
+                    'title': 'Machine Learning & Data Science',
+                    'description': 'Developed predictive models using scikit-learn and TensorFlow, implemented clustering algorithms, and created interactive visualizations for data analysis and model interpretation.'
+                },
+                {
+                    'title': 'Desktop Application Development',
+                    'description': 'Created desktop applications using Python (Tkinter), Java (Swing), and C++ for various use cases including management systems, converters, and productivity tools.'
+                },
+                {
+                    'title': 'Team Leadership & Project Management',
+                    'description': 'Led multiple projects from conception to deployment, managing timelines, coordinating development efforts, and ensuring successful delivery of high-quality software solutions.'
                 }
             ],
             'education': {
                 'degree': "Bachelor's Degree in Computer Science",
-                'level': 'Second Year Student',
-                'courses': 'Relevant coursework: Python, Java, SQL, Machine Learning, Web Development, Mobile Development'
+                'level': 'Second Year Student - Expected Graduation: 2027',
+                'courses': 'Core Coursework: Data Structures & Algorithms, Object-Oriented Programming (Java, C++), Database Management (SQL), Web Technologies (HTML, CSS, JavaScript, PHP), Machine Learning & AI, Computer Vision, Software Engineering, Mobile Development, Network Programming'
             },
             'skills': {
-                'programming': ['Python', 'Java', 'SQL', 'C', 'JavaScript', 'Dart', 'HTML/CSS', 'PHP'],
-                'frameworks': ['Flask', 'scikit-learn', 'TensorFlow', 'Flutter', 'Android SDK', 'Git/GitHub', 'RESTful APIs', 'Laravel'],
-                'databases': ['MySQL', 'PostgreSQL', 'JSON', 'Prompt Engineering', 'Android Studio', 'Adobe Photoshop', 'Adobe Premiere Pro'],
-                'soft_skills': ['Team Leadership', 'Problem-solving', 'Communication', 'Project Management', 'Adaptability']
+                'programming': ['Python', 'Java', 'C++', 'JavaScript', 'Dart', 'SQL', 'C', 'HTML5/CSS3', 'PHP', 'Rust'],
+                'frameworks': ['Flask', 'FastAPI', 'Laravel', 'Flutter', 'Bootstrap', 'TensorFlow', 'scikit-learn', 'OpenCV', 'Android SDK', 'Swing', 'Tkinter', 'React (learning)', 'Angular'],
+                'ai_ml': ['YOLOv8', 'TensorRT', 'Computer Vision', 'Deep Learning', 'Facial Recognition', 'Object Detection & Tracking', 'Gemini API', 'Natural Language Processing', 'Prompt Engineering', 'Model Training & Optimization'],
+                'databases': ['MySQL', 'PostgreSQL', 'SQLite', 'JSON', 'CSV Data Processing'],
+                'tools': ['Git/GitHub', 'Docker (learning)', 'Android Studio', 'VS Code', 'Jupyter Notebook', 'Postman', 'RESTful APIs', 'Cargo (Rust)'],
+                'design': ['Adobe Photoshop', 'Adobe Premiere Pro', 'UI/UX Design Principles', 'Responsive Design', 'Material Design'],
+                'soft_skills': ['Team Leadership', 'Problem-solving', 'Project Management', 'Agile Development', 'Technical Documentation', 'Communication', 'Adaptability', 'Self-Learning']
             },
             'projects': cls.load_projects(),
             'certifications': cls.load_certifications(),
@@ -168,6 +179,12 @@ class PortfolioData:
                 'linkedin_url': 'https://www.linkedin.com/in/adem-youssfi-2289672a4',
                 'github': 'Ad2m1109',
                 'github_url': 'https://github.com/Ad2m1109'
+            },
+            'stats': {
+                'projects_completed': '25+',
+                'technologies_mastered': '20+',
+                'years_coding': '3+',
+                'github_repos': '30+'
             }
         }
 
@@ -193,6 +210,11 @@ def api_certifications():
 def api_skills():
     """API endpoint for skills"""
     return jsonify(portfolio_data['skills'])
+
+@app.route('/api/stats')
+def api_stats():
+    """API endpoint for statistics"""
+    return jsonify(portfolio_data['stats'])
 
 @app.route('/contact', methods=['POST'])
 def contact():
@@ -241,6 +263,7 @@ def manifest():
             }
         ]
     })
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('errors/404.html'), 404
@@ -248,8 +271,6 @@ def not_found(error):
 @app.errorhandler(500)
 def server_error(error):
     return render_template('errors/500.html'), 500
-
-
 
 if __name__ == "__main__":
     # Set up logging
