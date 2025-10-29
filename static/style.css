@@ -453,8 +453,58 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
     .project-card {
-        flex-basis: 80%;
-        max-width: 80%;
+        flex: 0 0 90%;
+        max-width: 90%;
+        height: 280px;
+    }
+.github-image {
+    width: 300px;
+}
+    .project-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6));
+        padding: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+    }
+
+    .github-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: auto;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .skill-category-pills {
+        padding: 1.2rem;
+    }
+
+    .skill-pill {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 200px;
     }
 }
 
