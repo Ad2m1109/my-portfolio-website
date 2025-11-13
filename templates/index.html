@@ -95,113 +95,117 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home" aria-label="Go to home section">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about" aria-label="Go to about section">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills" aria-label="Go to skills section">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects" aria-label="Go to projects section">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certifications" aria-label="Go to certifications section">Certifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact" aria-label="Go to contact section">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="py-5 animate-on-scroll" aria-labelledby="hero-heading">
-            <div class="container text-center">
-                <h1 id="hero-heading" class="display-4 mb-3">Hi, I'm Adem Youssfi</h1>
-                <h2 class="typing-text mb-4" aria-live="polite"></h2>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="about-content">
-                            <p class="lead">{{ data.title }}</p>
-                            <p class="about-text mt-4">{{ data.bio }}</p>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#home" aria-label="Go to home section">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about" aria-label="Go to about section">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#blog" aria-label="Go to blog section">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#projects" aria-label="Go to projects section">Projects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#certifications" aria-label="Go to certifications section">Certifications</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contact" aria-label="Go to contact section">Contact</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-5 animate-on-scroll" aria-labelledby="about-heading">
-            <div class="container">
-                <h2 id="about-heading" class="text-center mb-5">About Me</h2>
-                <div class="row">
-                    <div class="col-md-12 mb-4">
-                        <div class="about-intro text-center">
-                            <p class="lead">{{ data.title }}</p>
-                            <p class="about-text mt-3">{{ data.about }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Experience Column -->
-                    <div class="col-lg-6 mb-4">
-                        <div class="content-card">
-                            <h3 class="section-subtitle mb-4"><i class="fas fa-briefcase me-2"></i>Experience</h3>
-                            <div class="timeline">
-                                {% for exp in data.experience %}
-                                <div class="timeline-item">
-                                    <div class="timeline-icon">
-                                        <i class="fas fa-check-circle"></i>
+                </nav>
+            
+                <main id="main-content">
+                    <!-- Hero Section -->
+                    <section id="home" class="py-5 animate-on-scroll" aria-labelledby="hero-heading">
+                        <div class="container text-center">
+                            <h1 id="hero-heading" class="display-4 mb-3">Hi, I'm Adem Youssfi</h1>
+                            <h2 class="typing-text mb-4" aria-live="polite"></h2>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="about-content">
+                                        <p class="lead">{{ data.title }}</p>
+                                        <p class="about-text mt-4">{{ data.bio }}</p>
                                     </div>
-                                    <div class="timeline-content">
-                                        <h5 class="experience-title">{{ exp.title }}</h5>
-                                        <p>{{ exp.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            
+                    <!-- About Section -->
+                    <section id="about" class="py-5 animate-on-scroll" aria-labelledby="about-heading">
+                        <div class="container">
+                            <h2 id="about-heading" class="text-center mb-5">About Me</h2>
+                            <div class="row">
+                                <div class="col-md-12 mb-4">
+                                    <div class="about-intro text-center">
+                                        <p class="lead">{{ data.title }}</p>
+                                        <p class="about-text mt-3">{{ data.about }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Experience Column -->
+                                <div class="col-lg-6 mb-4">
+                                    <div class="content-card">
+                                        <h3 class="section-subtitle mb-4"><i class="fas fa-briefcase me-2"></i>Experience</h3>
+                                        <div class="timeline">
+                                            {% for exp in data.experience %}
+                                            <div class="timeline-item">
+                                                <div class="timeline-icon">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </div>
+                                                <div class="timeline-content">
+                                                    <h5 class="experience-title">{{ exp.title }}</h5>
+                                                    <p>{{ exp.description }}</p>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Education Column -->
+                                <div class="col-lg-6 mb-4">
+                                    <div class="content-card">
+                                        <h3 class="section-subtitle mb-4"><i class="fas fa-graduation-cap me-2"></i>Education</h3>
+                                        <div class="education-item">
+                                            <h4>{{ data.education.degree }}</h4>
+                                            <p class="education-details"><i class="fas fa-university me-2"></i>{{ data.education.level }}</p>
+                                            <p><i class="fas fa-book me-2"></i>{{ data.education.courses }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            
+                    <!-- Blog Section -->
+                    <section id="blog" class="py-5 bg-light animate-on-scroll" aria-labelledby="blog-heading">
+                        <div class="container">
+                            <h2 id="blog-heading" class="text-center mb-5">Blog & Writings</h2>
+                            <div class="row">
+                                {% for post in data.blog_posts %}
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title">{{ post.title }}</h5>
+                                            <p class="card-text text-muted">{{ post.date }}</p>
+                                            <p class="card-text">{{ post.description }}</p>
+                                            <a href="{{ post.url }}" class="btn btn-primary mt-auto" target="_blank" rel="noopener">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>
-                    <!-- Education Column -->
-                    <div class="col-lg-6 mb-4">
-                        <div class="content-card">
-                            <h3 class="section-subtitle mb-4"><i class="fas fa-graduation-cap me-2"></i>Education</h3>
-                            <div class="education-item">
-                                <h4>{{ data.education.degree }}</h4>
-                                <p class="education-details"><i class="fas fa-university me-2"></i>{{ data.education.level }}</p>
-                                <p><i class="fas fa-book me-2"></i>{{ data.education.courses }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-5 bg-light animate-on-scroll" aria-labelledby="skills-heading">
-            <div class="container">
-                <h2 id="skills-heading" class="text-center mb-5">Technical Skills</h2>
-                <div class="skills-pills-container">
-                    {% for category, skills in data.skills.items() %}
-                    <div class="skill-category-pills">
-                        <h3 class="skill-category-title">{{ category.replace('_', ' ')|title }}</h3>
-                        <div class="skill-pills">
-                            {% for skill in skills %}
-                            <span class="skill-pill">{{ skill }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
+
 
         <!-- Projects Section -->
         <section id="projects" class="py-5 animate-on-scroll" aria-labelledby="projects-heading">

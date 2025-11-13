@@ -122,6 +122,12 @@ class PortfolioData:
             projects.append(project)
         return projects
 
+    @staticmethod
+    def load_blog_posts():
+        csv_path = os.path.join('data', 'blog_posts.csv')
+        expected_fields = ['title', 'date', 'description', 'url']
+        return PortfolioData._load_from_csv(csv_path, expected_fields)
+
     @classmethod
     def get_portfolio_data(cls):
         return {
@@ -156,15 +162,7 @@ class PortfolioData:
                 'level': 'Second Year Student - Expected Graduation: 2027',
                 'courses': 'Core Coursework: Data Structures & Algorithms, Object-Oriented Programming (Java, C++), Database Management (SQL), Web Technologies (HTML, CSS, JavaScript, PHP), Machine Learning & AI, Computer Vision, Software Engineering, Mobile Development, Network Programming'
             },
-            'skills': {
-                'programming': ['Python', 'Java', 'C++', 'JavaScript', 'Dart', 'SQL', 'HTML/CSS', 'PHP', 'Rust'],
-                'frameworks': ['Flask', 'FastAPI', 'Laravel', 'Flutter', 'Bootstrap', 'TensorFlow', 'PyTorch', 'scikit-learn', 'OpenCV', 'Android SDK', 'React', 'Angular'],
-                'ai_ml': ['Computer Vision', 'Deep Learning', 'Object Detection', 'Image Segmentation', 'Natural Language Processing', 'Prompt Engineering', 'YOLOv8', 'TensorRT', 'Gemini API'],
-                'databases': ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB'],
-                'tools': ['Git', 'GitHub', 'Docker', 'Android Studio', 'VS Code', 'Jupyter Notebook', 'Postman', 'RESTful APIs', 'Cargo'],
-                'design': ['UI/UX Design', 'Responsive Design', 'Material Design', 'Adobe Photoshop', 'Adobe Premiere Pro'],
-                'soft_skills': ['Team Leadership', 'Problem Solving', 'Project Management', 'Agile Development', 'Technical Writing', 'Communication']
-            },
+            'blog_posts': cls.load_blog_posts(),
             'projects': cls.load_projects(),
             'certifications': cls.load_certifications(),
             'contact': {
@@ -202,10 +200,10 @@ def api_certifications():
     """API endpoint for certifications"""
     return jsonify(portfolio_data['certifications'])
 
-@app.route('/api/skills')
-def api_skills():
-    """API endpoint for skills"""
-    return jsonify(portfolio_data['skills'])
+@app.route('/api/blog')
+def api_blog_posts():
+    """API endpoint for blog posts"""
+    return jsonify(portfolio_data['blog_posts'])
 
 @app.route('/api/stats')
 def api_stats():

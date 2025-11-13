@@ -1,0 +1,4 @@
+title,date,description,url
+"Understanding KMeans Clustering","October 26, 2023","A deep dive into the KMeans clustering algorithm, explaining its inner workings, use cases, and how to implement it from scratch in Python.","#"
+"Building a Real-Time Face Detector","November 15, 2023","This post walks through the process of building a real-time face detection application using OpenCV and Python, covering the challenges and optimizations.","#"
+"My Journey with Flutter: Building 10+ Apps","December 02, 2023","A personal reflection on my experience developing cross-platform mobile apps with Flutter, sharing key lessons learned and tips for new developers.","#"
