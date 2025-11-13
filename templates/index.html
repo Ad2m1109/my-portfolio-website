@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Adem Youssfi - Computer Science Student & Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Adem Youssfi, Computer Science student specializing in Machine Learning, Web Development, and Mobile Apps. View projects, skills, and certifications.">
+    <meta name="keywords" content="Computer Science, Machine Learning, Web Development, Mobile Apps, Python, Java, Flutter, Portfolio">
+    <meta name="author" content="Adem Youssfi">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com/">
+    <meta property="og:title" content="Adem Youssfi - Developer Portfolio">
+    <meta property="og:description" content="Computer Science student passionate about Machine Learning and Development">
+    <meta property="og:image" content="{{ url_for('static', filename='images/portfolio-preview.jpg') }}">
+    <meta property="og:site_name" content="Adem Youssfi Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourportfolio.com/">
+    <meta property="twitter:title" content="Adem Youssfi - Developer Portfolio">
+    <meta property="twitter:description" content="Computer Science student passionate about Machine Learning and Development">
+    <meta property="twitter:image" content="{{ url_for('static', filename='images/portfolio-preview.jpg') }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourportfolio.com/">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Theme Support -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Adem Youssfi",
+        "jobTitle": "Computer Science Student",
+        "description": "Computer Science student specializing in Machine Learning and Web Development",
+        "url": "https://yourportfolio.com",
+        "sameAs": [
+            "https://github.com/Ad2m1109",
+            "https://www.linkedin.com/in/adem-youssfi-2289672a4"
+        ],
+        "knowsAbout": ["Machine Learning", "Web Development", "Mobile Development", "Python", "Java", "Flutter"],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Computer Science Program"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#" aria-label="Adem Youssfi Home">Adem Youssfi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" aria-label="Go to home section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" aria-label="Go to about section">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills" aria-label="Go to skills section">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects" aria-label="Go to projects section">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certifications" aria-label="Go to certifications section">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" aria-label="Go to contact section">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="py-5 animate-on-scroll" aria-labelledby="hero-heading">
+            <div class="container text-center">
+                <h1 id="hero-heading" class="display-4 mb-3">Hi, I'm Adem Youssfi</h1>
+                <h2 class="typing-text mb-4" aria-live="polite"></h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="about-content">
+                            <p class="lead">{{ data.title }}</p>
+                            <p class="about-text mt-4">{{ data.bio }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-5 animate-on-scroll" aria-labelledby="about-heading">
+            <div class="container">
+                <h2 id="about-heading" class="text-center mb-5">About Me</h2>
+                <div class="row">
+                    <div class="col-md-12 mb-4">
+                        <div class="about-intro text-center">
+                            <p class="lead">{{ data.title }}</p>
+                            <p class="about-text mt-3">{{ data.about }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Experience Column -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="content-card">
+                            <h3 class="section-subtitle mb-4"><i class="fas fa-briefcase me-2"></i>Experience</h3>
+                            <div class="timeline">
+                                {% for exp in data.experience %}
+                                <div class="timeline-item">
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5 class="experience-title">{{ exp.title }}</h5>
+                                        <p>{{ exp.description }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Education Column -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="content-card">
+                            <h3 class="section-subtitle mb-4"><i class="fas fa-graduation-cap me-2"></i>Education</h3>
+                            <div class="education-item">
+                                <h4>{{ data.education.degree }}</h4>
+                                <p class="education-details"><i class="fas fa-university me-2"></i>{{ data.education.level }}</p>
+                                <p><i class="fas fa-book me-2"></i>{{ data.education.courses }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-5 bg-light animate-on-scroll" aria-labelledby="skills-heading">
+            <div class="container">
+                <h2 id="skills-heading" class="text-center mb-5">Technical Skills</h2>
+                <div class="skills-pills-container">
+                    {% for category, skills in data.skills.items() %}
+                    <div class="skill-category-pills">
+                        <h3 class="skill-category-title">{{ category.replace('_', ' ')|title }}</h3>
+                        <div class="skill-pills">
+                            {% for skill in skills %}
+                            <span class="skill-pill">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5 animate-on-scroll" aria-labelledby="projects-heading">
+            <div class="container projects-container">
+                <h2 id="projects-heading" class="section-title">Projects</h2>
+
+                <div class="project-filters" role="group" aria-label="Project category filters">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true" aria-label="Show all projects">All</button>
+                    <button class="filter-btn" data-filter="machine-learning" aria-pressed="false" aria-label="Show machine learning projects">Machine Learning</button>
+                    <button class="filter-btn" data-filter="ai" aria-pressed="false" aria-label="Show AI projects">AI</button>
+                    <button class="filter-btn" data-filter="mobile" aria-pressed="false" aria-label="Show mobile projects">Mobile</button>
+                    <button class="filter-btn" data-filter="web" aria-pressed="false" aria-label="Show web projects">Web</button>
+                </div>
+
+                <div class="project-scroll-wrapper">
+                    <button class="scroll-btn left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                    <div class="project-grid">
+                        {% for project in data.projects %}
+                        <article class="project-card{% if project.get('is_current') %} current-website{% endif %}" data-category="{{ project.category }}">
+                            <img src="{{ project.image_url }}" alt="{{ project.title }} screenshot" class="project-image-img">
+                            <div class="project-overlay">
+                                <h3 class="project-title">{{ project.title }}</h3>
+                                <p class="project-description">{{ project.description }}</p>
+                                <div class="tech-stack">
+                                    {% for tech in project.tech_stack %}
+                                    <span class="tech-badge">{{ tech }}</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="project-links">
+                                    {% if project.github_url and project.github_url != '#' %}
+                                    <a href="{{ project.github_url }}" class="btn btn-github" target="_blank" rel="noopener" aria-label="View {{ project.title }} source code on GitHub">
+                                        <i class="fab fa-github"></i> Source
+                                    </a>
+                                    {% endif %}
+                                    {% if project.get('demo_url') and project.demo_url != '#' %}
+                                    <a href="{{ project.demo_url }}" class="btn btn-info" target="_blank" rel="noopener" aria-label="View {{ project.title }} live demo">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                    {% elif project.get('is_current') %}
+                                    <span class="btn btn-current">
+                                        <i class="fas fa-check-circle"></i> Live
+                                    </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    <button class="scroll-btn right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- GitHub Profile Link -->
+                <div class="text-center mt-5">
+                    <div class="github-profile-card-image">
+                        <img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub Profile" class="img-fluid github-image">
+                        <a href="{{ data.contact.github_url }}" class="btn btn-primary github-button" target="_blank" rel="noopener" aria-label="Visit Adem's GitHub profile">
+                            <i class="fab fa-github me-2"></i> Visit GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-5 animate-on-scroll bg-light" aria-labelledby="certifications-heading">
+            <div class="container">
+                <h2 id="certifications-heading" class="text-center mb-4">Certifications</h2>
+                <div class="certification-filters text-center mb-4" role="group" aria-label="Certification category filters">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true" aria-label="Show all certifications">All</button>
+                    <button class="filter-btn" data-filter="python" aria-pressed="false" aria-label="Show Python certifications">Python</button>
+                    <button class="filter-btn" data-filter="data-science" aria-pressed="false" aria-label="Show Data Science certifications">Data Science</button>
+                    <button class="filter-btn" data-filter="java" aria-pressed="false" aria-label="Show Java certifications">Java</button>
+                    <button class="filter-btn" data-filter="git" aria-pressed="false" aria-label="Show Git certifications">Git</button>
+                    <button class="filter-btn" data-filter="sql" aria-pressed="false" aria-label="Show SQL certifications">SQL</button>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="certifications-grid">
+                            {% for cert in data.certifications %}
+                            <a href="{{ cert.url }}" class="certification-card" data-category="{{ cert.category }}" target="_blank" rel="noopener" aria-label="View {{ cert.title }} certification">
+                                <div class="certification-icon" aria-hidden="true">
+                                    {% if cert.category == 'java' %}
+                                        <i class="fab fa-java"></i>
+                                    {% elif cert.category == 'python' %}
+                                        <i class="fab fa-python"></i>
+                                    {% elif cert.category == 'git' %}
+                                        <i class="fab fa-git"></i>
+                                    {% elif cert.category == 'sql' %}
+                                        <i class="fas fa-database"></i>
+                                    {% elif cert.category == 'data-science' %}
+                                        <i class="fas fa-brain"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="certification-badge">{{ cert.category|title }}</div>
+                                <h5>{{ cert.title }}</h5>
+                                <span class="certification-platform">{{ cert.issuer }}</span>
+                                <p class="certification-date">{{ cert.date }}</p>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>© 2024 Adem Youssfi. All rights reserved.</p>
+            <div class="social-links mt-3">
+                <a href="{{ data.contact.github_url }}" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="{{ data.contact.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:{{ data.contact.email }}" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="{{ data.contact.whatsapp_url }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/sw.js')
+                .then(registration => console.log('SW registered'))
+                .catch(error => console.log('SW registration failed'));
+        }
+    </script>
+</body>
+</html>
